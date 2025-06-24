@@ -24,7 +24,7 @@ router.post("/", async(req, res) => {
   res.status(201).json(newCategory);
 });
 // GET /api/categories/:id - Get a category by ID
-router.get("/:id", async(req, res) => {
+router.get("/:id", async (req, res) => {
   const { id } = req.params;
   try {
     const category = await getCategoryById(id);
