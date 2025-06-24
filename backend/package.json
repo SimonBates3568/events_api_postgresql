@@ -4,13 +4,14 @@
   "type": "module",
   "description": "Your first ever REST API for managing events",
   "main": "src/index.js",
-  "scripts": {
-    "dev": "nodemon src/index.js",
-    "seed": "node prisma/seed.js",
-    "test-positive": "newman run \"../postman/collections/Events API.json\" -e \"../postman/environments/Local.postman_environment.json\"",
-    "test-negative": "newman run \"../postman/collections/Events API Negative.json\" -e \"../postman/environments/Local.postman_environment.json\"",
-    "test": "npm run test-positive && npm run test-negative"
-  },
+ "scripts": {
+  "dev": "nodemon src/index.js",
+  "start": "node src/index.js",
+  "seed": "node prisma/seed.js",
+  "test-positive": "newman run \"../postman/collections/Events API.json\" -e \"../postman/environments/Local.postman_environment.json\"",
+  "test-negative": "newman run \"../postman/collections/Events API Negative.json\" -e \"../postman/environments/Local.postman_environment.json\"",
+  "test": "npm run test-positive && npm run test-negative"
+},
   "engines": {
     "node": ">=18.0.0"
   },
