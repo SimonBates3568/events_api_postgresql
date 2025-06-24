@@ -4,7 +4,7 @@ import createCategory from "../services/categories/createCategory.js";
 import getCategoryById from "../services/categories/getCategoryById.js";
 import deleteCategoryById from "../services/categories/deleteCategoryById.js";
 import updateCategoryById from "../services/categories/updateCategoryById.js";
-import auth from "../middleware/auth.js";
+// import auth from "../middleware/auth.js";
 
 const router = Router();
 // GET /api/categories - Get all categories
@@ -18,13 +18,13 @@ router.get("/", async (_req, res) => {
   }
 });
 // POST /api/categories - Create a new category
-router.post("/", auth, async(req, res) => {
+router.post("/", async(req, res) => {
   const { name } = req.body;
   const newCategory = await createCategory(name);
   res.status(201).json(newCategory);
 });
 // GET /api/categories/:id - Get a category by ID
-router.get("/:id", async (req, res) => {
+router.get("/:id", async(req, res) => {
   const { id } = req.params;
   try {
     const category = await getCategoryById(id);
@@ -39,7 +39,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 // DELETE /api/categories/:id - Delete a category by ID
-router.delete("/:id", auth, async(req, res) => {
+router.delete("/:id", async(req, res) => {
   const { id } = req.params;
   const category = await deleteCategoryById(id);
 
@@ -55,7 +55,7 @@ router.delete("/:id", auth, async(req, res) => {
   }
 });
 // PUT /api/categories/:id - Update a category by ID
-router.put("/:id", auth, async(req, res) => {
+router.put("/:id", async(req, res) => {
   const { id } = req.params;
   const { name } = req.body;
   const category = await updateCategoryById(id, { name });
